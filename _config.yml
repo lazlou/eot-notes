@@ -21,7 +21,7 @@ latex:
 #######################################################################################
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/lharka/eot-notes  # Online location of book
+  url: https://github.com/lazlou/eot-notes  # Online location of book
   path_to_book: ""    # Optional path to book, relative to the repository root
   branch: main                     # Which branch is be used when creating links (optional)
 
