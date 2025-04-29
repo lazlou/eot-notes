@@ -1,0 +1,42 @@
+/* Reduce font size between headers */
+h1 {
+    font-size: 1.8rem;  /* Default ~2.2rem; adjust as needed */
+}
+
+h2 {
+    font-size: 1.5rem;  /* Default ~1.8rem */
+}
+
+h3 {
+    font-size: 1.2rem;  /* Default ~1.4rem */
+}
+
+h4 {
+    font-size: 1rem;    /* Default ~1.2rem */
+}
+
+/* Reduce spacing between headers inside .bd-article-container */
+.bd-article-container h2 {
+    margin-top: 2rem !important;  /* Increase top margin for H2 */
+    margin-bottom: 0.5rem !important;  /* Adjust bottom margin for H2 */
+}
+
+.bd-article-container h3 {
+    margin-top: 2rem !important;  /* Increase top margin for H3 */
+    margin-bottom: 0.2rem !important;  /* Adjust bottom margin for H3 */
+}
+
+.bd-article-container h4 {
+    margin-top: 1rem !important;  /* Increase top margin for H4 */
+    margin-bottom: 0.1rem !important;  /* Adjust bottom margin for H4 */
+}
+
+/* Increase spacing only when a paragraph is before an H3 */
+.bd-article-container p + h3 {
+    margin-top: 2rem !important; 
+}
+
+/* Prevent cell wrapping in tables */
+.dataframe tbody tr td {
+    white-space: nowrap;
+}

@@ -1,0 +1,70 @@
+#######################################################################################
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: EOT Archive Notes
+author: lazlou
+exclude_patterns: [_build, .DS_Store, .git, .github, "**.ipynb_checkpoints", "README.md"]
+
+#######################################################################################
+# Jupyter Notebook settings
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: "off" # or "auto" to execute notebooks during build
+
+#######################################################################################
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+#######################################################################################
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/lharka/eot-notes  # Online location of book
+  path_to_book: ""    # Optional path to book, relative to the repository root
+  branch: main                     # Which branch is be used when creating links (optional)
+
+#######################################################################################
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+#  favicon: null
+  extra_css: ["_static/custom.css"]
+  use_repository_button: true  # Whether to add a link to repository button
+  use_edit_page_button: false   # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_issues_button: false      # Whether to add an "open an issue" button
+  collapse_navigation: false    # Keeps sidebar fully expanded
+  navigation_depth: 4           # How many heading levels are shown in sidebar
+#  baseurl: ""                  # The base URL where the book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  comments:
+    hypothesis: true
+    utterances: false
+  last_updated: false           # TODO - After committing to Git repo + setting up version control: Change to "true" to auto-update "Last updated" date per page
+  extra_downloads:
+    - path: notebooks/eot_parquet_access.ipynb
+    - path: notebooks/how_to_query_eot_data.ipynb
+
+sphinx:
+  extensions: ['sphinxcontrib.bibtex']
+  extra_extensions:
+  - sphinx_togglebutton  # Optional, for collapsible sections
+#  bibtex_bibfiles: ['references.bib']
+#  bibtex_default_style: 'unsrt'
+  config:
+    language: en
+    html_show_copyright: false
+
+#######################################################################################
+# Parse and render settings
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - dollarmath
+    - amsmath
+    - colon_fence
+    - deflist
+    - html_image
+    - smartquotes
+    - linkify
+    - substitution
+    - attrs_block

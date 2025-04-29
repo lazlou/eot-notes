@@ -1,0 +1,34 @@
+# Sphinx/Jupyter Book build output
+_build/
+build/
+doctrees/
+autoapi/
+
+# macOS system files
+.DS_Store
+
+# Jupyter Notebook checkpoint files
+**/.ipynb_checkpoints
+
+# GitHub-specific files
+.github/*
+!.github/workflows/
+
+# IDE and editor temp files
+.vscode/
+.idea/
+*.swp
+*.sublime-project
+*.sublime-workspace
+
+# Python environment files
+venv/
+.env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Log files and caches
+*.log
+*.tmp

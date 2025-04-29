@@ -1,0 +1,17 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+chapters:
+  - file: how_to_access_eot_data
+    title: EOT Data Access
+
+  - file: notebooks/notebooks_overview
+    title: Notebooks Overview
+    sections:
+      - file: notebooks/eot_parquet_access
+        title: Accessing EOT Parquet Data
+      - file: notebooks/how_to_query_eot_data
+        title: Querying with DuckDB
