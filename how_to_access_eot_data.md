@@ -5,7 +5,7 @@ Basic instructions on how to access the Parquet data for the End of Term (EOT) A
 
 ## Notebooks available:
 - [eot_parquet_access.ipynb](notebooks/eot_parquet_access.ipynb): You can download this Jupyter Notebook and run all the example commands locally without needing to copy-paste from here.
-- [eot_parquet_access.ipynb](notebooks/how_to_query_eot_data.ipynb): Here's an additional notebook that gives a basic overview showing how to view and query the Parquet data with DuckDB.
+- [how_to_query_eot_data.ipynb](notebooks/how_to_query_eot_data.ipynb): Here's an additional notebook that gives a basic overview showing how to view and query the Parquet data with DuckDB.
 
 ## S3 Bucket Overview
 The EOT Archive S3 bucket is publicly accessible. You don't need AWS credentials, but you must use the `--no-sign-request` flag with AWS CLI commands.  

@@ -5,7 +5,7 @@ Some notes on how to access and query the Parquet data for the End of Term (EOT)
 
 ## Jupyter Notebooks:
 - [eot_parquet_access.ipynb](notebooks/eot_parquet_access.ipynb): Notebook showing how to access the Parquet data for the End of Term (EOT) Archive hosted on AWS S3. A more detailed description of these steps and overview of the dataset is available here: [EOT Data Access](how_to_access_eot_data.md).
-- [eot_parquet_access.ipynb](notebooks/how_to_query_eot_data.ipynb): This notebook gives an initial overview showing how to view and query the Parquet data with DuckDB.
+- [how_to_query_eot_data.ipynb](notebooks/how_to_query_eot_data.ipynb): This notebook gives an initial overview showing how to view and query the Parquet data with DuckDB.
 
 ## Additional info
 - [EOT Datasets Website](https://eotarchive.org/data/)
