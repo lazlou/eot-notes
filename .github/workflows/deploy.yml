@@ -32,4 +32,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          ghp-import -n -p -f -b gh-pages build/html
+          ghp-import -n -p -f -b gh-pages _build/html
