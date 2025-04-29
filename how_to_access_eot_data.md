@@ -68,7 +68,6 @@ PRE crawl-data/
 PRE eot-index/
 ```
 
-
 ### 3. List Available Parquet Files for a Specific Crawl
 This will show you all 48 Parquet part files (`part-00000-\*.gz.parquet`) in the EOT-2020 collection. 
 ```bash
