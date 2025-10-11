@@ -2,7 +2,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: EOT Archive Notes
+title: EOT Web Archive - Parquet Access Notes
 author: lazlou
 exclude_patterns: [_build, .DS_Store, .git, .github, "**.ipynb_checkpoints", "README.md"]
 
@@ -63,7 +63,7 @@ sphinx:
   config:
     html_theme_options:
       logo:
-        text: "EOT Archive Notes"
+        text: "EOT Web Archive: Parquet"
         image_light: _static/img/logo.png
         image_dark: _static/img/logo.png
     language: en
