@@ -19,6 +19,11 @@ latex:
     targetname: book.tex
 
 #######################################################################################
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+#######################################################################################
 # Information about where the book exists on the web
 repository:
   url: https://github.com/lazlou/eot-notes  # Online location of book
@@ -29,9 +34,12 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-#  favicon: null
-  extra_css: ["_static/custom.css"]
-  use_repository_button: true  # Whether to add a link to repository button
+  favicon: _static/img/logo.png
+  extra_css:
+    - _static/custom.css
+  extra_js:
+    - _static/external_links.js
+  use_repository_button: true   # Whether to add a link to repository button
   use_edit_page_button: false   # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
   use_issues_button: false      # Whether to add an "open an issue" button
   collapse_navigation: false    # Keeps sidebar fully expanded
@@ -40,20 +48,28 @@ html:
   comments:
     hypothesis: true
     utterances: false
-  last_updated: false           # TODO - After committing to Git repo + setting up version control: Change to "true" to auto-update "Last updated" date per page
+  last_updated: true
   extra_downloads:
     - path: notebooks/eot_parquet_access.ipynb
     - path: notebooks/how_to_query_eot_data.ipynb
 
 sphinx:
-  extensions: ['sphinxcontrib.bibtex']
+  extensions: 
+    - sphinxcontrib.bibtex
   extra_extensions:
   - sphinx_togglebutton  # Optional, for collapsible sections
 #  bibtex_bibfiles: ['references.bib']
 #  bibtex_default_style: 'unsrt'
   config:
+    html_theme_options:
+      logo:
+        text: "EOT Archive Notes"
+        image_light: _static/img/logo.png
+        image_dark: _static/img/logo.png
     language: en
     html_show_copyright: false
+    html_extra_path:
+      - _static/img
 
 #######################################################################################
 # Parse and render settings

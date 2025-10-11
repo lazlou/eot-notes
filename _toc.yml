@@ -6,7 +6,10 @@ root: intro
 
 chapters:
   - file: how_to_access_eot_data
-    title: EOT Data Access
+    title: Data Access
+
+  - file: data_dictionary
+    title: Data Dictionary
 
   - file: notebooks/notebooks_overview
     title: Notebooks Overview
@@ -15,3 +18,9 @@ chapters:
         title: Accessing EOT Parquet Data
       - file: notebooks/how_to_query_eot_data
         title: Querying with DuckDB
+
+  - file: resources
+    title: Resources
+
+  - file: references
+    title: References

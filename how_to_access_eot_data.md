@@ -1,7 +1,5 @@
 # Accessing the EOT Archive Data (Parquet Files)
-Basic instructions on how to access the Parquet data for the End of Term (EOT) Archive hosted on AWS S3. These notes + approach are a work-in-progress. Open to suggestions for improvement.
-
-**Note:** Currently written for macOS (or Linux/Unix-like environments). I hope to update these later so the commands are easier to test across operating systems.
+Basic instructions on how to access the Parquet data for the [End of Term (EOT) Archive](https://eotarchive.org/data/) hosted on AWS S3 {cite:p}`eot_datasets, aws_s3_eot_2025`. These notes are evolving. Feedback is welcome! Written for macOS/Linux/Unix environments.
 
 ## Notebooks available:
 - [eot_parquet_access.ipynb](notebooks/eot_parquet_access.ipynb): You can download this Jupyter Notebook and run all the example commands locally without needing to copy-paste from here.
@@ -32,21 +30,24 @@ eotarchive/
             └── crawl=EOT-2020/  
 ```
 
-## EOT-2020 Parquet Files 
-The Parquet files are the converted and compressed versions of the original CDXJ index data. Each `part-XXXXX` file is a chunk (part) of the full EOT-2020 index dataset. These are already ready to be loaded into tools like Pandas, PyArrow, Spark, etc.
+## Parquet in EOT 
+Parquet is a compressed, columnar format optimized for analytics, so you can run scalable DataFrame/SQL queries without parsing large text CDX files. In the [EOT Datasets](https://eotarchive.org/data/), the Parquet tables mirror the CDX/CDXJ capture index. They live under `eotarchive/eot-index/table/eot-main/` and are partitioned by crawl year: `crawl=EOT-2008/`, `crawl=EOT-2012/`, `crawl=EOT-2016/`, `crawl=EOT-2020/`. Each year directory contains multiple `part-*.parquet` files that together make up that year’s crawl data. You can point DuckDB, PyArrow, pandas, Spark, or Athena at a year directory and query directly (e.g., by host/domain, HTTP status, MIME type, timestamp), and use the stored WARC filename/offset to retrieve the original record if needed. {cite:p}`alam_workshop_2024, phillips_longitudinal_2023, phillips_content-based_2023`. 
 
-### Details
+For the column names referenced in queries, see the [EOT Parquet Data Dictionary](data_dictionary.md); you can also view the embedded schema directly from the Parquet files (Step 6 below).
+
+### EOT-2020 Parquet Files* 
+#### <u>Details</u>
 - Number of files: 48 (`part-00000` to `part-00047`)
-- Compressed size (total): ~73,316 MB (~71.6 GiB)
-- File size range: ~725 MB to ~3.2 GB
-- Average size: ~1.5–2.5 GB per file
+- Compressed size (total): 76.9 GB
+- File size range: 0.7-3.2 GB
+- Average size: 1.5-2.5 GB per file
 
-### Download Speed Estimates*
-  - Small file (~725 MB): ~2–3 minutes
-  - Large file (~3 GB): ~10–15 minutes 
-  - Full dataset (~72 GB): ~3.5–5+ hours
+#### <u>Download Speed Estimates</u>
+  - Small file (0.7 GB): 2-3 minutes
+  - Large file (3.2 GB): 10-15 minutes 
+  - Full dataset (~77 GB): 3.5-5 hours
 
-\*Time estimates based on ~4-6 MB/s download speeds.
+<small>*Sizes approximate. Time estimates based on 4-6 MB/s download speeds.</small>
 
 ## Requirements
 ### 1. Install Required Tools
@@ -87,7 +88,7 @@ Example:
 | Field                      | Meaning                                                      |
 | -------------------------- | ------------------------------------------------------------ |
 | `2023-11-08 09:07:19`      | The last modified date and time of the file in S3 (UTC). |
-| `725934696`                | File size in bytes. This one is ~726 MB compressed.    |
+| `725934696`                | File size in bytes. This one is ~726 MB (0.7 GB) compressed.    |
 | `part-00046-...gz.parquet` | File name: a compressed Parquet part file.               |
 
 #### EOT-2020 Output (Full list of EOT-2020 Parquet files)
@@ -219,7 +220,7 @@ dtype: object
 ```
 
 ### 7. Optional: Download the Full Dataset
-**Warning:** This will download all 48 Parquet files for EOT-2020 (~72 GB compressed). Test on smaller subsets first!
+**Warning:** This will download all 48 Parquet files for EOT-2020 (~77 GB compressed). Test on smaller subsets first!
 
 Create a folder to save the output files:
 ```bash
@@ -249,15 +250,3 @@ aws s3 cp --no-sign-request \
   s3://eotarchive/eot-index/table/eot-main/crawl=EOT-2020/part-00045-dda73194-fd75-4dcb-b361-4d099d882262-c000.gz.parquet \
   EOT-2020/parquet/subset/
 ```
-
-## Additional Resources
-### EOT Dataset Access
-- [End of Term Datasets](https://eotarchive.org/data/): Primary resource with EOT datasets and documentation.
-- [EOT S3 Bucket Registry Entry](https://registry.opendata.aws/eot-web-archive/): Main S3 bucket with associated open data registry entry.
-
-### Tutorials
-- *[End of Term Parquet Workshop](https://github.com/end-of-term/eot-parquet-workshop)*  by Mark E. Phillips and Sawood Alam (2024): Step-by-step guide on analyzing the EOT WARC data in Parquet format.
-
-### Background Articles
-- *[End of Term Web Archive Dataset: Longitudinal Web Archive of .GOV and .MIL Domains](https://digital.library.unt.edu/ark:/67531/metadc2201613/)* by Mark E. Phillips, Kristy Phillips, and Sawood Alam (2024): Overview of dataset characteristics, file formats, intended uses, and methodology.
-- *[Content-Based Characterization of the End of Term Web Archive](https://digital.library.unt.edu/ark:/67531/metadc2201623/)* by Mark E. Phillips, Kristy Phillips, and Sawood Alam (2023): Covers derivative creation and metadata management, including the technologies used and introduction of the WARC Metadata Sidecar for storing auxiliary metadata.
