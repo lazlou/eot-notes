@@ -62,6 +62,7 @@ sphinx:
 #  bibtex_default_style: 'unsrt'
   config:
     html_theme_options:
+      default_mode: light
       logo:
         text: "EOT Web Archive: Parquet"
         image_light: _static/img/logo.png
