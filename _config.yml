@@ -26,8 +26,7 @@ bibtex_bibfiles:
 #######################################################################################
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/lazlou/eot-notes  # Online location of book
-  path_to_book: ""    # Optional path to book, relative to the repository root
+  url: https://github.com/lazlou/eot-notes/intro  # Online location of book
   branch: main                     # Which branch is be used when creating links (optional)
 
 #######################################################################################
