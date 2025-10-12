@@ -26,7 +26,7 @@ bibtex_bibfiles:
 #######################################################################################
 # Information about where the book exists on the web
 repository:
-  url: https://lazlou.github.io/eot-notes  # Online location of book
+  url: https://lazlou.github.io/eot-notes/intro  # Online location of book
   branch: main                     # Which branch is be used when creating links (optional)
 
 #######################################################################################
@@ -45,7 +45,7 @@ html:
   navigation_depth: 4           # How many heading levels are shown in sidebar
 #  baseurl: ""                  # The base URL where the book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   comments:
-    hypothesis: true
+    hypothesis: false
     utterances: false
   last_updated: true
   extra_downloads:
