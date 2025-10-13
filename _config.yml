@@ -50,7 +50,7 @@ html:
   last_updated: true
   extra_downloads:
     - path: notebooks/eot_parquet_access.ipynb
-    - path: notebooks/how_to_query_eot_data.ipynb
+    - path: notebooks/eot_parquet_query.ipynb
 
 sphinx:
   extensions: 
