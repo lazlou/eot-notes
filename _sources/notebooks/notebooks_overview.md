@@ -1,0 +1,3 @@
+# Notebooks Overview
+- [eot_parquet_access.ipynb](eot_parquet_access.ipynb): Notebook showing how to access the EOT Parquet data. A more detailed description of these steps and overview of the dataset is available here: [EOT Web Archive - Parquet Access Notes](../eot_parquet_access.md).
+- [eot_parquet_query.ipynb](eot_parquet_query.ipynb): Notebook providing an initial overview of how to view and query the Parquet data with DuckDB.
