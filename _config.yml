@@ -43,36 +43,37 @@ html:
   use_issues_button: false      # Whether to add an "open an issue" button
   collapse_navigation: false    # Keeps sidebar fully expanded
   navigation_depth: 4           # How many heading levels are shown in sidebar
-#  baseurl: ""                  # The base URL where the book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  baseurl: "https://lazlou.github.io/eot-notes/"  # The base URL where the book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   comments:
     hypothesis: false
     utterances: false
-  last_updated: true
   extra_downloads:
     - path: notebooks/eot_parquet_access.ipynb
     - path: notebooks/eot_parquet_query.ipynb
 
 sphinx:
-  extensions: 
-    - sphinxcontrib.bibtex
-  extra_extensions:
-  - sphinx_togglebutton  # Optional, for collapsible sections
-#  bibtex_bibfiles: ['references.bib']
-#  bibtex_default_style: 'unsrt'
   config:
+    html_theme: sphinx_book_theme
     html_theme_options:
-      repository_url: https://github.com/lazlou/eot-notes
-      repository_branch: main
-      use_repository_button: true
-      default_mode: light
       logo:
         text: "EOT Web Archive: Parquet"
         image_light: _static/img/logo.png
         image_dark: _static/img/logo.png
-    language: en
+      repository_url: https://github.com/lazlou/eot-notes
+      repository_branch: main
+      use_repository_button: true
+      default_mode: light
+      last_updated: true
+    html_last_updated_fmt: "%b %d, %Y"
     html_show_copyright: false
     html_extra_path:
       - _static/img
+    language: en
+  extra_extensions:
+  - sphinxcontrib.bibtex
+  - sphinx_togglebutton  # Optional, for collapsible sections
+#  bibtex_bibfiles: ['references.bib']
+#  bibtex_default_style: 'unsrt'
 
 #######################################################################################
 # Parse and render settings
