@@ -2,7 +2,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: EOT Web Archive - Parquet Access Notes
+title: EOT Web Archive
 author: lazlou
 exclude_patterns: [_build, .DS_Store, .git, .github, "**.ipynb_checkpoints", "README.md"]
 
@@ -26,7 +26,7 @@ bibtex_bibfiles:
 #######################################################################################
 # Information about where the book exists on the web
 repository:
-  url: https://lazlou.github.io/eot-notes/intro  # Online location of book
+  url: https://github.com/lazlou/eot-notes  # Online location of book
   branch: main                     # Which branch is be used when creating links (optional)
 
 #######################################################################################
@@ -61,6 +61,9 @@ sphinx:
 #  bibtex_default_style: 'unsrt'
   config:
     html_theme_options:
+      repository_url: https://github.com/lazlou/eot-notes
+      repository_branch: main
+      use_repository_button: true
       default_mode: light
       logo:
         text: "EOT Web Archive: Parquet"

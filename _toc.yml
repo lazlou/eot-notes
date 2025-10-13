@@ -15,8 +15,8 @@ chapters:
     title: Notebooks Overview
     sections:
       - file: notebooks/eot_parquet_access
-        title: Accessing EOT Parquet Data
-      - file: notebooks/how_to_query_eot_data
+        title: Accessing Parquet Data
+      - file: notebooks/eot_parquet_query
         title: Querying with DuckDB
 
   - file: resources
