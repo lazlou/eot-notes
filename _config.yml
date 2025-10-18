@@ -10,7 +10,7 @@ exclude_patterns: [_build, .DS_Store, .git, .github, "**.ipynb_checkpoints", "RE
 # Jupyter Notebook settings
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: "off" # or "auto" to execute notebooks during build
+  execute_notebooks: "off" # or "auto" to run during build
 
 #######################################################################################
 # Define the name of the latex output file for PDF builds
@@ -19,7 +19,7 @@ latex:
     targetname: book.tex
 
 #######################################################################################
-# Add a bibtex file so that we can create citations
+# Citations (equivalent to sphinx.config.bibtex_bibfiles)
 bibtex_bibfiles:
   - references.bib
 
@@ -27,10 +27,10 @@ bibtex_bibfiles:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/lazlou/eot-notes  # Online location of book
-  branch: main                     # Which branch is be used when creating links (optional)
+  branch: main                              # Branch used when generating links
 
 #######################################################################################
-# Add GitHub buttons to your book
+# HTML theme + site options
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   favicon: _static/img/logo.png
@@ -38,12 +38,12 @@ html:
     - _static/custom.css
   extra_js:
     - _static/external_links.js
-  use_repository_button: true   # Whether to add a link to repository button
-  use_edit_page_button: false   # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
-  use_issues_button: false      # Whether to add an "open an issue" button
-  collapse_navigation: false    # Keeps sidebar fully expanded
-  navigation_depth: 4           # How many heading levels are shown in sidebar
-  baseurl: "https://lazlou.github.io/eot-notes/"  # The base URL where the book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  use_repository_button: true   # Show "Repository" button
+  use_edit_page_button: false   # Show "Edit this page" button
+  use_issues_button: false      # Show "Open an issue" button
+  collapse_navigation: false    # Keep sidebar expanded
+  navigation_depth: 4           # Heading shown in sidebar
+  baseurl: "https://lazlou.github.io/eot-notes/"  # Canonical/site base URL
   comments:
     hypothesis: false
     utterances: false
@@ -51,7 +51,16 @@ html:
     - path: notebooks/eot_parquet_access.ipynb
     - path: notebooks/eot_parquet_query.ipynb
 
+#######################################################################################
+# Sphinx configuration
 sphinx:
+  # Enabled extensions
+  extra_extensions:
+    - sphinxcontrib.bibtex
+    - sphinx_togglebutton
+    - sphinxext.rediraffe
+
+  # conf.py-style settings
   config:
     html_theme: sphinx_book_theme
     html_theme_options:
@@ -62,21 +71,24 @@ sphinx:
       repository_url: https://github.com/lazlou/eot-notes
       repository_branch: main
       use_repository_button: true
-      default_mode: light
-      last_updated: true
     html_last_updated_fmt: "%b %d, %Y"
     html_show_copyright: false
     html_extra_path:
       - _static/img
     language: en
-  extra_extensions:
-  - sphinxcontrib.bibtex
-  - sphinx_togglebutton  # Optional, for collapsible sections
-#  bibtex_bibfiles: ['references.bib']
-#  bibtex_default_style: 'unsrt'
+
+    # Redirects (sphinxext-rediraffe): old-source.md -> new-source.md
+    rediraffe_redirects:
+      how_to_access_eot_data.md: eot_parquet_access.md
+
+    # Optional sphinxcontrib-bibtex settings (enable when needed)
+    # bibtex_default_style: unsrt
+    # bibtex_reference_style: label
+    # bibtex_bibfiles:
+    #   - references.bib
 
 #######################################################################################
-# Parse and render settings
+# MyST parser and render settings
 parse:
   myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
     - dollarmath
